@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="常用Linux命令收集">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 命令">
+<meta property="og:url" content="https:&#x2F;&#x2F;fchen521.gitee.io&#x2F;2019&#x2F;11&#x2F;12&#x2F;Linux%20%E5%91%BD%E4%BB%A4&#x2F;index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="常用Linux命令收集">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-12T03:06:46.089Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://fchen521.gitee.io/2019/11/12/Linux%20%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Linux 命令 | 学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fchen521.gitee.io/2019/11/12/Linux%20%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/wang.jpg">
+      <meta itemprop="name" content="fchen521">
+      <meta itemprop="description" content="不被嘲笑的梦想, 是不值得去实现的.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux 命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-12 11:07:26 / 修改时间：11:06:46" itemprop="dateCreated datePublished" datetime="2019-11-12T11:07:26+08:00">2019-11-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">常用Linux命令收集</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<h5 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release 查询linux版本</span><br><span class="line">cat /proc/cpuinfo<span class="params">| grep "cpu cores"|</span> uniq  查看服务器CPU核数</span><br><span class="line">cat /proc/cpuinfo<span class="params">| grep "physical id"|</span> sort<span class="params">| uniq|</span> wc -l CPU数</span><br><span class="line">cat /proc/cpuinfo<span class="params">| grep "processor"|</span> wc -l 逻辑CPU总数</span><br><span class="line">uname -r  linux上查看系统版本</span><br><span class="line">lsof -<span class="symbol">i:</span>端口号 查看端口号使用情况</span><br><span class="line">df -T 查看分区的文件系统</span><br><span class="line">df -h 显示目前所有文件系统的可用空间及使用情形</span><br><span class="line">du -sh *   查看当前目录下各个文件及目录占用空间大小</span><br><span class="line">ls -lh  查看文件大小</span><br><span class="line">free -h      命令是一个快速查看内存使用情况的方法</span><br><span class="line">shutdown -r now 是关机后立即重新启动</span><br><span class="line">reboot  是直接重新启动</span><br><span class="line">date -R 查看时区</span><br><span class="line">env 查看所有环境变量</span><br><span class="line">vim /etc/hostname 或 hostnamectl set-hostname [NAME]  修改主机名</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="进程命令"><a href="#进程命令" class="headerlink" title="进程命令"></a>进程命令</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">top 显示进程   top -c 显示完整进程命令   top -p PID 显示某个PID的进程</span><br><span class="line">netstat -ano|findstr 8080</span><br><span class="line">netstat -anop | grep PID 查看指定端口的进程 </span><br><span class="line">ps -ef|grep XX 查看某个进程</span><br><span class="line">kill -9 杀掉进程</span><br><span class="line">nohup  &amp; 保护进程</span><br></pre></td></tr></table></figure>
+
+<h5 id="文件命令"><a href="#文件命令" class="headerlink" title="文件命令"></a>文件命令</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh epel-release-<span class="number">7</span>-<span class="number">11</span>.noarch.rpm  安装rpm包命令</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>.新建一个文-件夹或文件 </span><br><span class="line">mkdir name  创建一个叫name的文件夹 </span><br><span class="line">vi test.txt 创建一个.txt文件并编辑</span><br><span class="line">touch test.sh 创建一个.txt文件</span><br><span class="line">mv test.txt tet.txt 将test.txt文件重命名为tet.txt</span><br><span class="line"></span><br><span class="line">rpm -qa <span class="params">| grep jdk 查询所有安装的rpm包，显示名字中包含jdk的</span></span><br><span class="line"><span class="params">yum -y remove java-1.7.0-openjdk-1.7.0.75-2.5.4.2.el7_0.x86 移除相关所有依赖的包（慎）</span></span><br><span class="line"><span class="params">clear 、CTRL+L 清屏</span></span><br><span class="line"><span class="params">history 50 看到输入的50条命令</span></span><br><span class="line"><span class="params">!!执行上一个命令</span></span><br><span class="line"><span class="params">!n执行上一个n开头的命令</span></span><br><span class="line"><span class="params">ctrl+r历史命令搜索</span></span><br><span class="line"><span class="params">find / -name test 查看test文件</span></span><br><span class="line"><span class="params">whereis    寻找特定文件，查看文件的位置只能用于搜索二进制文件(-b)、源代码文件(-s)、说明文件(-m)</span></span><br><span class="line"><span class="params">grep 'test' test*　　#显示所有以test开头的文件中包含 test的行</span></span><br><span class="line"><span class="params">tar  -zxvf   压缩文件名.tar.gz  解压tar.gz类型的文件</span></span><br><span class="line"><span class="params">unzip file1.zip 解压一个zip文件</span></span><br><span class="line"><span class="params">zip -r spring-boot .  压缩springboot目录到当前文件夹</span></span><br><span class="line"><span class="params">tar -zcvf spring-boot.tar.gz spring-boot 压缩tar</span></span><br><span class="line"><span class="params"></span></span><br><span class="line"><span class="params">grep  "Hello" test.txt   在test.txt文件中查找Hello,也可以在目录中查找</span></span><br><span class="line"><span class="params">grep   -n "Hello" test/*   在test目录下所有文件中查找Hello, -n显示行数</span></span><br><span class="line"><span class="params"></span></span><br><span class="line"><span class="params">chown -R root：root oracle  (更改目录的权限为root)</span></span><br><span class="line"><span class="params">                在编辑某个文件的时候：</span></span><br><span class="line"><span class="params">-f 强行xx的参数。。。</span></span><br><span class="line"><span class="params">rz 上传文件</span></span><br><span class="line"><span class="params">tail -f 实时监控文件</span></span><br><span class="line"><span class="params">sz+文件名 下载文件</span></span><br><span class="line"><span class="params">cd  进入到下一层目录</span></span><br><span class="line"><span class="params">cd  -返回到上次访问目录</span></span><br><span class="line"><span class="params">cd ..返回到上层目录</span></span><br><span class="line"><span class="params">scp jdk-8u171-linux-x64.tar.gz  ip地址或者别名:/software </span></span><br><span class="line"><span class="params">复制jdk到hadoop2服务器的software下（不同电脑）</span></span><br><span class="line"><span class="params">scp -r 目录/  用户名@ip:/地址   分发目录</span></span><br><span class="line"><span class="params">cp -r 复制目录 （主要是同一台电脑）</span></span><br><span class="line"><span class="params">rm -rf software 删除software文件</span></span><br><span class="line"><span class="params">cls 　　清屏</span></span><br><span class="line"><span class="params">more　　分屏显示</span></span><br><span class="line"><span class="params">move 　 移动文件，改目录名  move [文件名] [目录]  move [目录名] [目录名]</span></span><br><span class="line"><span class="params">exit     退出</span></span><br><span class="line"><span class="params">net start mysql 启动mysql</span></span><br><span class="line"><span class="params">net stop mysql  停止mysql</span></span><br><span class="line"><span class="params">Ls -a查看列出所有文件(ll -a)</span></span><br><span class="line"><span class="params">mkdir -p 可以创建目录文件夹</span></span><br><span class="line"><span class="params"></span></span><br><span class="line"><span class="params">软连接创建删除修改</span></span><br><span class="line"><span class="params">#Linux软链接，类似于windows系统的快捷键。【目标目录】指软连接指向的目标目录下，【软链接地址】指“快捷键”文件名称</span></span><br><span class="line"><span class="params">ln -s 【目标目录】 【软链接地址】</span></span><br><span class="line"><span class="params">rm -rf 【软链接地址】</span></span><br><span class="line"><span class="params">ln -snf 【新目标目录】 【软链接地址】</span></span><br></pre></td></tr></table></figure>
+
+
+<h5 id="less-命令"><a href="#less-命令" class="headerlink" title="less 命令"></a>less 命令</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">less 与 more 类似，但使用 less 可以随意浏览文件 </span><br><span class="line">less [参数] 文件</span><br><span class="line">-e 当文件显示结束后，自动离开</span><br><span class="line">-m 显示类似more命令的百分比</span><br><span class="line">-N 显示每行的行号</span><br><span class="line">/字符串：向下搜索<span class="string">"字符串"</span>的功能</span><br><span class="line">?字符串：向上搜索<span class="string">"字符串"</span>的功能</span><br><span class="line">b 向后翻一页</span><br><span class="line">空格键 滚动一页</span><br><span class="line">G - 移动到最后一行</span><br><span class="line">g - 移动到第一行</span><br><span class="line">F  tail -f 的效果，读取写入文件的最新内容</span><br><span class="line">Q 退出</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h IP地址 -uroot -proot 访问别的ip上的mysql</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开启telnet服务</span><br><span class="line">控制面板————程序和功能————打开或关闭Windows功能————找到“Telnet服务器”和“Telne客户端”两项保存</span><br></pre></td></tr></table></figure>
+
+<h5 id="修改文件权限和用户组"><a href="#修改文件权限和用户组" class="headerlink" title="修改文件权限和用户组"></a>修改文件权限和用户组</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">第一个字符，如果是“-”则表示是文件，如果是“d”则表示是目录</span><br><span class="line">r是<span class="number">4</span>（读），w是<span class="number">2</span>（写），x是<span class="number">1</span>（执行），-是<span class="number">0</span></span><br><span class="line">所以上面文件是<span class="number">6</span> <span class="number">4</span> <span class="number">4</span>权限</span><br><span class="line"></span><br><span class="line">修改权限命令</span><br><span class="line">chmod <span class="number">755</span> test.txt</span><br><span class="line"></span><br><span class="line">chmod <span class="number">755</span> 文件或目录    不修改目录里面的文件</span><br><span class="line">chmod  -R <span class="number">755</span> 目录    修改目录里面的文件</span><br><span class="line">或者</span><br><span class="line">chmod +wx 文件或目录</span><br><span class="line">chmod -wx 文件或目录</span><br><span class="line"></span><br><span class="line">chown 用户<span class="symbol">:</span>用户组 文件名/文件夹  <span class="comment">#修改指定文件用户</span></span><br><span class="line">chown <span class="symbol">root:</span>root test.txt</span><br><span class="line">chown -R 用户<span class="symbol">:</span>用户组 文件名/文件夹 <span class="comment">#修改文件下所有的文件</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Linux-CPU问题排查"><a href="#Linux-CPU问题排查" class="headerlink" title="Linux CPU问题排查"></a>Linux CPU问题排查</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、通过top命令定位占用cpu高的进程</span><br><span class="line">top -p PID</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、通过top命令定位问题进程中每个线程占用cpu情况</span><br><span class="line">top -p PID H</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、通过jstack 命令定位问题代码（<span class="number">142</span>ef是<span class="number">82671</span>十六进制转化成的）</span><br><span class="line">jstack PID <span class="params">| grep 142ef</span></span><br><span class="line"><span class="params"></span></span><br><span class="line"><span class="params">4 Linux上转换16进制</span></span><br><span class="line"><span class="params">  printf "%x\n" PID</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Linux-用户管理"><a href="#Linux-用户管理" class="headerlink" title="Linux 用户管理"></a>Linux 用户管理</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">useradd 选项 用户名<span class="symbol">:</span>添加用户账号</span><br><span class="line">userdel 选项 用户名<span class="symbol">:</span>删除用户帐号</span><br><span class="line">usermod 选项 用户名<span class="symbol">:</span>修改帐号</span><br><span class="line">passwd 用户名<span class="symbol">:</span>更改或创建用户的密码</span><br><span class="line">passwd -S 用户名 <span class="symbol">:</span>显示用户账号密码信息</span><br><span class="line">passwd -d 用户名: 清除用户密码</span><br><span class="line"></span><br><span class="line">groupadd 选项 用户组 <span class="symbol">:</span>增加一个新的用户组</span><br><span class="line">groupdel 用户组<span class="symbol">:</span>要删除一个已有的用户组</span><br><span class="line">groupmod 选项 用户组 : 修改用户组的属性</span><br></pre></td></tr></table></figure>
+
+<h5 id="Linux-常见参数修改"><a href="#Linux-常见参数修改" class="headerlink" title="Linux 常见参数修改"></a>Linux 常见参数修改</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">MaxSessions：最大允许链接数，默认<span class="number">10</span>.</span><br><span class="line">MaxStartups：最大允许保持多少个未认证链接（未输入登录密码），默认值是<span class="number">10</span>.</span><br><span class="line"></span><br><span class="line">把他们的数字改大，例如改成</span><br><span class="line">MaxSessions <span class="number">1000</span></span><br><span class="line">MaxStartups <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">最后重启</span><br><span class="line">sshd service sshd restart</span><br><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">杀僵尸进程</span><br><span class="line">ps -A -o stat,ppid,pid,cmd <span class="params">| grep -e '^[Zz]' |</span> awk <span class="string">'&#123;print $2&#125;'</span> <span class="params">| xargs kill -9</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/12/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98-%E8%B7%A8%E5%9F%9F/" rel="prev" title="跨域">
+                  跨域 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#系统命令"><span class="nav-number">1.</span> <span class="nav-text">系统命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#进程命令"><span class="nav-number">2.</span> <span class="nav-text">进程命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文件命令"><span class="nav-number">3.</span> <span class="nav-text">文件命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#less-命令"><span class="nav-number">4.</span> <span class="nav-text">less 命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改文件权限和用户组"><span class="nav-number">5.</span> <span class="nav-text">修改文件权限和用户组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux-CPU问题排查"><span class="nav-number">6.</span> <span class="nav-text">Linux CPU问题排查</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux-用户管理"><span class="nav-number">7.</span> <span class="nav-text">Linux 用户管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux-常见参数修改"><span class="nav-number">8.</span> <span class="nav-text">Linux 常见参数修改</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="fchen521"
+      src="/images/wang.jpg">
+  <p class="site-author-name" itemprop="name">fchen521</p>
+  <div class="site-description" itemprop="description">不被嘲笑的梦想, 是不值得去实现的.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fchen521</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
