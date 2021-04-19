@@ -1,0 +1,1732 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/assets/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/assets/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Lamdba," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Lambda 使用实例">
+<meta name="keywords" content="Lamdba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lamdba 表达式">
+<meta property="og:url" content="http://localhost:4000/java/2019/07/07/Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="Lambda 使用实例">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lamdba 表达式">
+<meta name="twitter:description" content="Lambda 使用实例">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>Lamdba 表达式 | 学习笔记</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/java/2019/07/07/Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fchen521">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatar.csdnimg.cn/7/4/2/2_qq_36611929_1611037964.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            Lamdba 表达式
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-07T00:00:00+08:00">
+                2019-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Java" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/java/2019/07/07/Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/java/2019/07/07/Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/java/2019/07/07/Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="leancloud_visitors" data-flag-title="Lamdba 表达式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+            
+                <div class="post-description">
+                    Lambda 使用实例
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--more-->
+
+<h5 id="用lambda表达式实现runnable">用lambda表达式实现Runnable</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11</pre></td><td class="code"><pre class="highlight"><code><span class="c1">// Java 8之前：</span>
+<span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before Java8, too much code for too little to do"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+
+<span class="c1">//Java 8方式：</span>
+<span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"In Java8, Lambda expression rocks !!"</span><span class="o">)</span> <span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="使用lambda表达式对列表进行迭代">使用lambda表达式对列表进行迭代</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33</pre></td><td class="code"><pre class="highlight"><code><span class="c1">// Java 8之前：</span>
+<span class="n">List</span> <span class="n">features</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Lambdas"</span><span class="o">,</span> <span class="s">"Default Method"</span><span class="o">,</span> <span class="s">"Stream API"</span><span class="o">,</span> <span class="s">"Date and Time API"</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">feature</span> <span class="o">:</span> <span class="n">features</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">feature</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="c1">// Java 8之后：</span>
+<span class="n">List</span> <span class="n">features</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Lambdas"</span><span class="o">,</span> <span class="s">"Default Method"</span><span class="o">,</span> <span class="s">"Stream API"</span><span class="o">,</span> <span class="s">"Date and Time API"</span><span class="o">);</span>
+<span class="n">features</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+
+<span class="c1">// 使用Java 8的方法引用更方便，方法引用由::双冒号操作符标示，</span>
+<span class="c1">// 看起来像C++的作用域解析运算符</span>
+<span class="n">features</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+
+<span class="err">通过过滤创建一个</span><span class="n">String</span><span class="err">列表</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">filtered</span> <span class="o">=</span> <span class="n">strList</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">length</span><span class="o">()&gt;</span> <span class="mi">2</span><span class="o">).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+
+<span class="c1">// 将字符串换成大写并用逗号链接起来</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">G7</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"USA"</span><span class="o">,</span> <span class="s">"Japan"</span><span class="o">,</span> <span class="s">"France"</span><span class="o">,</span> <span class="s">"Germany"</span><span class="o">,</span> <span class="s">"Italy"</span><span class="o">,</span> <span class="s">"U.K."</span><span class="o">,</span><span class="s">"Canada"</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">G7Countries</span> <span class="o">=</span> <span class="n">G7</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">()).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">", "</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">G7Countries</span><span class="o">);</span>
+
+<span class="c1">// 用所有不同的数字创建一个正方形列表</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">distinct</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">).</span><span class="na">distinct</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Original List : %s,  Square Without duplicates : %s %n"</span><span class="o">,</span> <span class="n">numbers</span><span class="o">,</span> <span class="n">distinct</span><span class="o">);</span>
+
+<span class="c1">//获取数字的个数、最小值、最大值、总和以及平均值</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">primes</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">17</span><span class="o">,</span> <span class="mi">19</span><span class="o">,</span> <span class="mi">23</span><span class="o">,</span> <span class="mi">29</span><span class="o">);</span>
+<span class="n">IntSummaryStatistics</span> <span class="n">stats</span> <span class="o">=</span> <span class="n">primes</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">((</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">).</span><span class="na">summaryStatistics</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Highest prime number in List : "</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getMax</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Lowest prime number in List : "</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getMin</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of all prime numbers : "</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getSum</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Average of all prime numbers : "</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">getAverage</span><span class="o">());</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="排序">排序</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24</pre></td><td class="code"><pre class="highlight"><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">);</span>
+<span class="c1">//jdk1.8之前排序</span>
+<span class="err">倒序</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span><span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(){</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Integer</span> <span class="n">o1</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">o2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">o1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o2</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="c1">//使用Lambda表达式排序</span>
+<span class="err">倒序</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,(</span><span class="n">Integer</span> <span class="n">o1</span><span class="o">,</span><span class="n">Integer</span> <span class="n">o2</span><span class="o">)-&gt;{</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">o1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o2</span><span class="o">);</span>
+<span class="o">});</span>
+
+<span class="c1">//可以简写为</span>
+<span class="err">顺序</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,(</span><span class="n">Integer</span> <span class="n">o1</span><span class="o">,</span><span class="n">Integer</span> <span class="n">o2</span><span class="o">)-&gt;</span><span class="n">o1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o2</span><span class="o">));</span>
+
+<span class="err">数组排序</span><span class="o">,</span><span class="err">用法同上</span>
+<span class="n">Int</span> <span class="n">num</span><span class="o">[]={</span><span class="mi">1</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">};</span>
+
+<span class="c1">//Lambda表达式排序</span>
+<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">a</span><span class="o">);</span><span class="c1">//{1,2,3,4,5}</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="map函数">Map函数</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10</pre></td><td class="code"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">_names</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Bob"</span><span class="o">,</span> <span class="s">"Tom"</span><span class="o">,</span> <span class="s">"Jeff"</span><span class="o">,</span> <span class="s">"Scott"</span><span class="o">,</span>
+        <span class="s">"Jennifer"</span><span class="o">,</span> <span class="s">"Steve"</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">greetings</span> <span class="o">=</span> <span class="n">_names</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">name</span> <span class="o">-&gt;</span> <span class="s">"Hello "</span> <span class="o">+</span> <span class="n">name</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">greetings</span><span class="o">);</span><span class="err">。</span><span class="c1">//打印整个list集合</span>
+   <span class="n">greetings</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span> <span class="c1">//遍历输出集合中每个元素</span>
+  <span class="o">}</span>
+<span class="c1">//运行结果[Hello Bob, Hello Tom, Hello Jeff, Hello Scott, Hello Jennifer, Hello Steve]</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="comparator比较器的使用">Comparator比较器的使用</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33<br/>34<br/>35<br/>36<br/>37<br/>38<br/>39<br/>40<br/>41<br/>42<br/>43<br/>44<br/>45<br/>46</pre></td><td class="code"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test12Comparator</span> <span class="o">{</span>  
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>  
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"nihao"</span><span class="o">,</span> <span class="s">"hi"</span><span class="o">,</span> <span class="s">"hello"</span><span class="o">,</span> <span class="s">"welcome"</span><span class="o">);</span>  
+  
+        <span class="c1">//升序排序，流的写法  </span>
+        <span class="c1">//list.stream().sorted(Comparator.comparing(str -&gt; str)).collect(Collectors.toList()).forEach(System.out::println);  </span>
+  
+        <span class="c1">//升序排序，默认写法  </span>
+        <span class="cm">/*Collections.sort(list); 
+        System.out.println("list = " + list);*/</span>  
+  
+        <span class="c1">//自定义排序器,默认写法  </span>
+        <span class="cm">/*Collections.sort(list, (item1, item2) -&gt; item1.length() - item2.length()); //升序 
+        Collections.sort(list, (item1, item2) -&gt; item2.length() - item1.length());   //降序 
+        System.out.println("list = " + list);*/</span>  
+  
+        <span class="c1">//自定义排序器,Comparator写法  </span>
+        <span class="cm">/*Collections.sort(list, Comparator.comparingInt(str -&gt; str.length()));                       //升序 
+        Collections.sort(list, Comparator.comparingInt(str -&gt; str.length()).reversed());              //降序,会报错，因为编译器在这里无法推断str的类型为String，而是推断出事一个Objcet 
+        Collections.sort(list, Comparator.comparingInt((String str) -&gt; str.length()).reversed());*/</span>   <span class="c1">//降序,显示的指定一个类型  </span>
+  
+        <span class="c1">//自定义排序器,Comparator写法2  </span>
+        <span class="cm">/*Collections.sort(list, Comparator.comparingInt(String::length));           //升序 
+        Collections.sort(list, Comparator.comparingInt(String::length).reversed());  //降序 
+        System.out.println("list = " + list);*/</span>  
+  
+        <span class="c1">//直接调用list的排序方法，Collections.sort()本质还是调用list.sort方法  </span>
+        <span class="cm">/*list.sort(Comparator.comparingInt(String::length));             //升序 
+        list.sort(Comparator.comparingInt(String::length).reversed());    //降序*/</span>  
+  
+        <span class="cm">/**两层排序:先按照长度排序，再按照字符串顺序**/</span>  
+        <span class="c1">//Collections.sort(list, Comparator.comparingInt(String::length).thenComparing(String.CASE_INSENSITIVE_ORDER));   //不区分大小写的排序  </span>
+        <span class="c1">//Collections.sort(list, Comparator.comparingInt(String::length).thenComparing(String::compareTo));  </span>
+
+        <span class="c1">//Collections.sort(list, Comparator.comparingInt(String::length).thenComparing((item1, item2) -&gt; item1.toLowerCase().compareTo(item2.toLowerCase())));  </span>
+
+        <span class="c1">//Collections.sort(list, Comparator.comparingInt(String::length).thenComparing(Comparator.comparing(String::toLowerCase)));  </span>
+
+        <span class="c1">//Collections.sort(list, Comparator.comparingInt(String::length).thenComparing(Comparator.comparing(String::toLowerCase, Comparator.reverseOrder())));  </span>
+
+        <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">Comparator</span><span class="o">.</span><span class="na">comparingInt</span><span class="o">(</span><span class="nl">String:</span><span class="o">:</span><span class="n">length</span><span class="o">).</span><span class="na">thenComparing</span><span class="o">(</span><span class="n">Comparator</span><span class="o">.</span><span class="na">comparing</span><span class="o">(</span><span class="nl">String:</span><span class="o">:</span><span class="n">toLowerCase</span><span class="o">,</span> <span class="n">Comparator</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">())).</span>  
+                <span class="n">thenComparing</span><span class="o">(</span><span class="n">Comparator</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">()));</span><span class="c1">//和上一个结果是一样的，因为已经排好序了，最后一个就不起作用了  </span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"list = "</span> <span class="o">+</span> <span class="n">list</span><span class="o">);</span>  
+  
+    <span class="o">}</span>  
+<span class="o">}</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="list集合中使用lambda表达式">List集合中使用lambda表达式</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15</pre></td><td class="code"><pre class="highlight"><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">a</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="n">a</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">b</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="n">b</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+<span class="c1">//合并两个List集合</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">figures</span><span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">).</span><span class="na">flatMap</span><span class="o">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">u</span><span class="o">.</span><span class="na">stream</span><span class="o">()).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+<span class="n">figures</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">f</span><span class="o">));</span>
+<span class="c1">//取出集合最大值</span>
+<span class="n">Integer</span> <span class="n">m</span><span class="o">=</span><span class="n">figures</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">max</span><span class="o">(</span><span class="n">Comparator</span><span class="o">.</span><span class="na">comparing</span><span class="o">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">u</span><span class="o">)).</span><span class="na">get</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">m</span><span class="o">);</span>
+<span class="c1">//把List里面的元素相加</span>
+<span class="n">Integer</span> <span class="n">s</span> <span class="o">=</span> <span class="n">figures</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">reduce</span><span class="o">((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="lambda语法">lambda语法</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code><span class="err">引用静态方法</span>         <span class="o">[</span><span class="err">类名：：</span><span class="n">static</span><span class="err">方法</span><span class="o">]</span>	
+<span class="err">引用某个对象的方法</span>   <span class="o">[</span><span class="err">实例化对象：：普通方法</span><span class="o">]</span>
+<span class="err">引用特定类型的方法</span>   <span class="o">[</span><span class="err">特定类：：方法</span><span class="o">]</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="java-jdk18提供了的接口">Java jdk1.8提供了的接口</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33<br/>34<br/>35<br/>36</pre></td><td class="code"><pre class="highlight"><code><span class="n">T</span><span class="err">参数，</span><span class="n">R</span><span class="err">返回值</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">R</span><span class="o">&gt;</span>
+<span class="kd">class</span> <span class="nc">LambdaT</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">print</span><span class="o">(</span><span class="n">String</span> <span class="n">data</span><span class="o">){</span>
+       <span class="k">return</span> <span class="n">data</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">fun</span><span class="o">=</span><span class="nl">LambdaT:</span><span class="o">:</span><span class="n">print</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fun</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="s">"A"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="err">消费者，有参数，没返回值</span>
+<span class="n">Consumer</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+
+<span class="kd">class</span> <span class="nc">LambdaT</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="n">String</span> <span class="n">data</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">fun</span><span class="o">=</span><span class="nl">LambdaT:</span><span class="o">:</span><span class="n">print</span><span class="o">;</span>
+        <span class="n">fun</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="err">供给型接口，不需要参数，可以返回结果</span>
+<span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kd">class</span> <span class="nc">LambdaT</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">print</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="s">"A"</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">fun</span><span class="o">=</span><span class="nl">LambdaT:</span><span class="o">:</span><span class="n">print</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fun</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="optional类">Optional类</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5</pre></td><td class="code"><pre class="highlight"><code><span class="err">一：作用</span>
+	<span class="err">解决空指针异常导致</span><span class="n">Java</span><span class="err">应用程序失败的问题</span>
+  <span class="err">二：方法</span>
+        <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">()</span> <span class="err">不允许参数是</span><span class="kc">null</span><span class="err">，为空抛出异常</span>
+        <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">()</span> <span class="err">无限制</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<p><strong>1.方法：</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12</pre></td><td class="code"><pre class="highlight"><code><span class="n">isPresent</span><span class="o">()</span><span class="err">：判断值是否存在</span>
+
+<span class="kt">void</span> <span class="nf">ifPresent</span><span class="o">(</span><span class="n">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">consumer</span><span class="o">)</span>
+<span class="err">如果值存在则使用该值调用</span> <span class="n">consumer</span> <span class="o">,</span> <span class="err">否则不做任何事情。</span>
+
+<span class="n">orElse</span><span class="o">(</span><span class="n">value</span><span class="o">)</span><span class="err">：如果</span><span class="n">optional</span><span class="err">对象保存的值不是</span><span class="kc">null</span><span class="err">，则返回原来的值，否则返回</span><span class="n">value</span>
+
+<span class="nf">orElseGet</span><span class="o">(</span><span class="n">Supplier</span> <span class="n">supplier</span><span class="o">)</span><span class="err">：功能与</span><span class="n">orElse</span><span class="err">一样，只不过</span><span class="n">orElseGet</span><span class="err">参数是一个对象</span>
+
+<span class="n">filter</span><span class="o">(</span><span class="n">Predicate</span><span class="o">)</span><span class="err">：判断</span><span class="n">Optional</span><span class="err">对象中保存的值是否满足</span><span class="n">Predicate</span><span class="err">，并返回新的</span><span class="n">Optional</span><span class="err">。</span>
+
+<span class="n">map</span><span class="o">(</span><span class="n">Function</span><span class="o">)</span><span class="err">：对</span><span class="n">Optional</span><span class="err">中保存的值进行函数运算，并返回新的</span><span class="n">Optional</span><span class="o">(</span><span class="err">可以是任何类型</span><span class="o">)</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p><strong>2.Optional用法</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19</pre></td><td class="code"><pre class="highlight"><code><span class="n">optional</span><span class="o">.</span><span class="na">ifPresent</span><span class="o">()</span><span class="err">可以判断返回值是否为空</span>
+<span class="n">ifPresent</span><span class="o">(</span><span class="n">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">consumer</span><span class="o">)</span><span class="err">在结果部位空时进行消费操作</span>
+<span class="n">optional</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="err">获取返回值</span>
+
+<span class="err">用</span><span class="n">Optional</span><span class="err">可以在没有值时指定一个返回值</span>
+<span class="n">Integer</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[]{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">};</span>
+<span class="n">Integer</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">filter</span><span class="o">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">9</span><span class="o">).</span><span class="na">max</span><span class="o">(</span><span class="n">Comparator</span><span class="o">.</span><span class="na">naturalOrder</span><span class="o">()).</span><span class="na">orElse</span><span class="o">(-</span><span class="mi">1</span><span class="o">);</span>
+
+<span class="n">Integer</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">filter</span><span class="o">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">9</span><span class="o">).</span><span class="na">max</span><span class="o">(</span><span class="n">Comparator</span><span class="o">.</span><span class="na">naturalOrder</span><span class="o">()).</span><span class="na">orElseGet</span><span class="o">(()-&gt;-</span><span class="mi">1</span><span class="o">);</span>
+
+<span class="n">Integer</span> <span class="n">result2</span><span class="o">=</span><span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">filter</span><span class="o">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">9</span><span class="o">).</span><span class="na">max</span><span class="o">(</span><span class="n">Comparator</span><span class="o">.</span><span class="na">naturalOrder</span><span class="o">()).</span><span class="na">orElseThrow</span><span class="o">(</span><span class="nl">RuntimeException:</span><span class="o">:</span><span class="k">new</span><span class="o">);</span> 
+
+<span class="n">Optional</span><span class="o">.</span><span class="na">empty</span><span class="o">()</span><span class="err">创建一个空的</span><span class="n">Optional</span>
+<span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">()</span><span class="err">创建指定值的</span><span class="n">Optional</span>
+<span class="n">map</span><span class="err">方法进行</span><span class="n">Optional</span><span class="err">的转换</span>
+<span class="n">Optional</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">studentOptional</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">"user1"</span><span class="o">,</span><span class="mi">21</span><span class="o">));</span>
+<span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalStr</span> <span class="o">=</span> <span class="n">studentOptional</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Student:</span><span class="o">:</span><span class="n">getName</span><span class="o">);</span>
+<span class="n">flatMap</span><span class="err">方法进行</span><span class="n">Optional</span><span class="err">的迭代</span>
+<span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="err">参数</span><span class="o">).</span><span class="na">flatMap</span><span class="o">(</span><span class="nl">Class:</span><span class="o">:</span><span class="err">方法一</span><span class="o">).</span><span class="na">flatMap</span><span class="o">(</span><span class="nl">Class:</span><span class="o">:</span><span class="err">方法二</span><span class="o">);</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="常见的几种stream流">常见的几种stream流</h5>
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33<br/>34<br/>35<br/>36<br/>37<br/>38<br/>39<br/>40<br/>41<br/>42</pre></td><td class="code"><pre class="highlight"><code><span class="c1">//创建一个空的stream</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">stream</span>  <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strs</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"11212"</span><span class="o">,</span><span class="s">"dfd"</span><span class="o">,</span><span class="s">"2323"</span><span class="o">,</span><span class="s">"dfhgf"</span><span class="o">);</span>
+<span class="c1">//创建普通流</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stream</span>  <span class="o">=</span> <span class="n">strs</span><span class="o">.</span><span class="na">stream</span><span class="o">();</span>
+
+<span class="c1">//创建并行流</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stream1</span> <span class="o">=</span> <span class="n">strs</span><span class="o">.</span><span class="na">parallelStream</span><span class="o">();</span>
+
+<span class="c1">//创建无限流，通过limit提取指定大小</span>
+<span class="n">Stream</span><span class="o">.</span><span class="na">generate</span><span class="o">(()-&gt;</span><span class="s">"number"</span><span class="o">+</span><span class="k">new</span> <span class="n">Random</span><span class="o">().</span><span class="na">nextInt</span><span class="o">()).</span><span class="na">limit</span><span class="o">(</span><span class="mi">100</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+
+<span class="c1">//创建规律的无限流</span>
+<span class="n">Stream</span><span class="o">.</span><span class="na">iterate</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">).</span><span class="na">limit</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span><span class="err">与如下代码意思是一样的</span>
+
+<span class="c1">//合并流可以把两个stream合并成一个stream（合并的stream类型必须相同）</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stream1</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr1</span><span class="o">);</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stream2</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr2</span><span class="o">);</span>
+<span class="n">Stream</span><span class="o">.</span><span class="na">concat</span><span class="o">(</span><span class="n">stream1</span><span class="o">,</span><span class="n">stream2</span><span class="o">).</span><span class="na">distinct</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+
+<span class="n">map</span> <span class="err">转换流，将一种类型的流转换为另外一种流</span>
+<span class="n">filter</span> <span class="err">过滤流，过滤流中的元素</span>
+<span class="n">flapMap</span> <span class="err">拆解流，将流中每一个元素拆解成一个流（多个</span> <span class="n">Stream</span> <span class="err">合并成一个</span> <span class="n">Stream</span> <span class="err">并返回）</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="n">li</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"a"</span><span class="o">,</span><span class="s">"b"</span><span class="o">,</span><span class="s">"c"</span><span class="o">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="n">li2</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"b"</span><span class="o">,</span><span class="s">"d"</span><span class="o">,</span><span class="s">"g"</span><span class="o">);</span>
+<span class="n">li</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">flatMap</span><span class="o">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">li2</span><span class="o">.</span><span class="na">stream</span><span class="o">()).</span><span class="na">forEach</span><span class="o">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">));</span>
+<span class="err">#将两个</span><span class="n">for</span><span class="err">循环变成一条语句</span>
+
+<span class="n">String</span><span class="o">[]</span> <span class="n">strs</span> <span class="o">=</span> <span class="o">{</span><span class="s">"java8"</span><span class="o">,</span><span class="s">"c++"</span><span class="o">,</span><span class="s">"name"</span><span class="o">,</span><span class="s">"age"</span><span class="o">};</span>
+    <span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">strs</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">str</span> <span class="o">-&gt;</span> <span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">))</span>  <span class="c1">// 映射成为Stream&lt;String[]&gt;</span>
+            <span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="nl">Arrays:</span><span class="o">:</span><span class="n">stream</span><span class="o">)</span>  <span class="c1">// 扁平化为Stream&lt;String&gt;</span>
+            <span class="o">.</span><span class="na">distinct</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+
+<span class="n">sorted</span> <span class="err">对流进行排序</span>
+<span class="n">skip</span> <span class="err">跳过前</span><span class="n">n</span><span class="err">个数据</span>
+<span class="n">count</span> <span class="err">计算数量</span>
+<span class="n">findAny</span> <span class="err">找到所有匹配的元素</span> <span class="err">对并行流十分有效</span> <span class="err">只要在任何片段发现了第一个匹配元素就会结束整个运算</span>
+<span class="n">findFirst</span> <span class="err">查找第一个</span>
+<span class="n">anyMatch</span> <span class="err">是否含有匹配元素</span><span class="n">Boolean</span> <span class="n">aBoolean</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">anyMatch</span><span class="o">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"a"</span><span class="o">));</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h5 id="lambda-收集器">lambda 收集器</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28</pre></td><td class="code"><pre class="highlight"><code><span class="n">Collectors</span><span class="o">.</span><span class="na">maxBy</span><span class="o">()</span>        <span class="err">找出最小值</span>
+<span class="n">Collectors</span><span class="o">.</span><span class="na">minBy</span><span class="o">()</span>        <span class="err">找出最大值</span>
+<span class="n">Collectors</span><span class="o">.</span><span class="na">averagingInt</span><span class="o">()</span> <span class="err">求</span><span class="n">int</span><span class="err">类型平均值</span><span class="o">(</span><span class="n">averagingDouble</span><span class="o">,</span><span class="n">averagingLong</span><span class="o">)</span>
+<span class="n">Collectors</span><span class="o">.</span><span class="na">partitioningBy</span><span class="o">()</span><span class="err">数据分块</span>
+<span class="n">Collectors</span><span class="o">.</span><span class="na">groupingBy</span><span class="o">()</span> <span class="err">数据分组</span>
+
+<span class="nl">eg:</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span><span class="o">{</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+	<span class="c1">//getter setter</span>
+<span class="o">}</span>
+
+<span class="n">Optional</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">collect</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">maxBy</span><span class="o">(</span><span class="n">comparing</span><span class="o">(</span><span class="n">o</span> <span class="o">-&gt;</span> <span class="n">o</span><span class="o">.</span><span class="na">getAge</span><span class="o">())));</span><span class="c1">//找出最大年龄</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;&gt;</span> <span class="n">collect</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">partitioningBy</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">getAge</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="o">));</span><span class="c1">//将数据按照大于30岁和小于30岁进行分组</span>
+
+<span class="err">字符串连接</span>
+<span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">getName</span><span class="o">()).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">","</span><span class="o">,</span> <span class="s">"["</span><span class="o">,</span> <span class="s">"]"</span><span class="o">));</span><span class="c1">//把所有的名字用逗号连接起来[a,b,c]</span>
+
+<span class="err">根据名字分组，统计每组的的数量</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">groupingBy</span><span class="o">((</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">getName</span><span class="o">()),</span><span class="n">counting</span><span class="o">()));</span>
+
+<span class="err">根据年龄分组，获取每个组所有的人名字</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">groupingBy</span><span class="o">((</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">getAge</span><span class="o">()),</span><span class="n">mapping</span><span class="o">(</span><span class="nl">Student:</span><span class="o">:</span><span class="n">getName</span><span class="o">,</span><span class="n">toList</span><span class="o">())));</span>
+
+<span class="err">获取年龄大于</span><span class="mi">10</span><span class="err">岁的人的名字，并且在控制台打印出来</span>
+<span class="n">list</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span><span class="n">o</span> <span class="o">-&gt;</span> <span class="n">o</span><span class="o">.</span><span class="na">getAge</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">).</span><span class="na">map</span><span class="o">(</span><span class="n">m</span> <span class="o">-&gt;</span> <span class="n">m</span><span class="o">.</span><span class="na">getName</span><span class="o">()).</span><span class="na">peek</span><span class="o">(</span><span class="n">log</span><span class="o">-&gt;</span><span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">log</span><span class="o">)).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toSet</span><span class="o">());</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/Lamdba" rel="tag"># Lamdba</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/%E5%89%8D%E7%AB%AF/2019/08/06/Jquery-%E5%89%8D%E7%AB%AF/" rel="next" title="Jquery 前端">
+                <i class="fa fa-chevron-left"></i> Jquery 前端
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/java/2019/06/08/Java-%E5%8F%8D%E5%B0%84/" rel="prev" title="Java 反射">
+                Java 反射 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+<script>
+  var valine = new Valine();
+  valine.init({
+      el:'#comments',
+      appId:'M6W6GEcKTwbfLP46LbOYslWk-gzGzoHsz',//leancloud里找
+      appKey:'XB14HR6MbrBx56WQchnomVYM',//leancloud里找
+      notify:true,
+      visitor: true,
+      placeholder:'默认评论'
+  })
+</script>
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatar.csdnimg.cn/7/4/2/2_qq_36611929_1611037964.jpg"
+               alt="fchen521" />
+          <p class="site-author-name" itemprop="name">fchen521</p>
+           
+              <p class="site-description motion-element" itemprop="description">学而时习之，不亦乐乎</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/fchen521" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://blog.csdn.net/qq_36611929" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-5"> <a class="nav-link" href="#用lambda表达式实现runnable"> <span class="nav-number">1</span> <span class="nav-text">用lambda表达式实现Runnable</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#使用lambda表达式对列表进行迭代"> <span class="nav-number">2</span> <span class="nav-text">使用lambda表达式对列表进行迭代</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#排序"> <span class="nav-number">3</span> <span class="nav-text">排序</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#map函数"> <span class="nav-number">4</span> <span class="nav-text">Map函数</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#comparator比较器的使用"> <span class="nav-number">5</span> <span class="nav-text">Comparator比较器的使用</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#list集合中使用lambda表达式"> <span class="nav-number">6</span> <span class="nav-text">List集合中使用lambda表达式</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#lambda语法"> <span class="nav-number">7</span> <span class="nav-text">lambda语法</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#java-jdk18提供了的接口"> <span class="nav-number">8</span> <span class="nav-text">Java jdk1.8提供了的接口</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#optional类"> <span class="nav-number">9</span> <span class="nav-text">Optional类</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#常见的几种stream流"> <span class="nav-number">10</span> <span class="nav-text">常见的几种stream流</span> </a> </li> <li class="nav-item nav-level-5"> <a class="nav-link" href="#lambda-收集器"> <span class="nav-number">11</span> <span class="nav-text">lambda 收集器</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fchen521</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/java/2019/07/07/Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/';
+              this.page.identifier = '/java/2019/07/07/Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F/';
+              this.page.title = 'Lamdba 表达式';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("M6W6GEcKTwbfLP46LbOYslWk-gzGzoHsz", "XB14HR6MbrBx56WQchnomVYM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
